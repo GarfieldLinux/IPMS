@@ -1,0 +1,11 @@
+	# makefile-lib   tab键的问题整死人啊
+all	:config.so
+SRC =Config.cpp 
+TGT = $(SRC:.c=.o)
+$(SRC) : Config.h
+	@touch $@
+%.o : %.cpp
+	g++ -c -FPIC  $?
+	# 动态函数库(my.so)生成
+config.so : $(TGT)
+	g++ -shared -o $@ $(TGT)  -lc

@@ -1,0 +1,2 @@
+select * from prov INNER JOIN city ON prov.sort = city.parentid  where prov.id=12;
+该查询语句的作用是省市表关联查询
